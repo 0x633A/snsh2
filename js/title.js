@@ -1,12 +1,14 @@
-var titleElement = document.getElementById('title');
-var titles = [
+const titleElement = document.getElementById('title');
+const titles = [
     "nothing is the same",
     "hell is here",
     "and its here to stay",
     "my partys down you gotta come",
     "tax fraud :3"
 ];
-var speed = 100; // Typing speed in milliseconds
+
+const speed = 50; // Typing speed in milliseconds
+const interval = 5000; // Interval between title changes in milliseconds
 
 function getRandomTitle() {
     var randomIndex = Math.floor(Math.random() * titles.length);
@@ -16,6 +18,7 @@ function getRandomTitle() {
 function typeWriter() {
     var text = getRandomTitle();
     var i = 0;
+    titleElement.innerHTML = ''; // Clear the title before typing new text
     function type() {
         if (i < text.length) {
             titleElement.innerHTML += text.charAt(i);
@@ -26,4 +29,13 @@ function typeWriter() {
     type();
 }
 
-window.onload = typeWriter();
+function updateTitle() {
+    setInterval(function () {
+        typeWriter();
+    }, interval);
+}
+
+window.onload = function () {
+    typeWriter(); // Initial typing of the title
+    updateTitle(); // Start updating the title after a certain interval
+};
