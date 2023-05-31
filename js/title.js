@@ -1,4 +1,4 @@
-const titleElement = document.title;
+const titleElement = document.getElementById('title');
 const titles = [
     "nothing is the same",
     "hell is here",
@@ -18,10 +18,11 @@ function getRandomTitle() {
 function typeWriter() {
     var text = getRandomTitle();
     var i = 0;
-    titleElement.innerHTML = ''; // Clear the title before typing new text
+    var typedTitle = '';
     function type() {
         if (i < text.length) {
-            titleElement.innerHTML += text.charAt(i);
+            typedTitle += text.charAt(i);
+            document.title = typedTitle;
             i++;
             setTimeout(type, speed);
         }
