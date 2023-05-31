@@ -35,7 +35,8 @@ function updateTitle() {
     }, interval);
 }
 
-window.onload = function () {
-    typeWriter(); // Initial typing of the title
-    updateTitle(); // Start updating the title after a certain interval
-};
+window.addEventListener("load", (event) => {
+    console.log("page is fully loaded");
+    typeWriter();
+    updateTitle();
+});
