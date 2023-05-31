@@ -26,4 +26,4 @@ function typeWriter() {
     type();
 }
 
-window.onload = typeWriter;
+window.onload = typeWriter();
