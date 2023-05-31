@@ -1,4 +1,4 @@
-const titleElement = document.getElementById('title');
+const titleElement = document.title;
 const titles = [
     "nothing is the same",
     "hell is here",
@@ -7,7 +7,7 @@ const titles = [
     "tax fraud :3"
 ];
 
-const speed = 50; // Typing speed in milliseconds
+const speed = 100; // Typing speed in milliseconds
 const interval = 5000; // Interval between title changes in milliseconds
 
 function getRandomTitle() {
