@@ -1,23 +1,24 @@
 var titleElement = document.getElementById('title');
-var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'; // Characters and numbers to choose from
+var titles = [
+    "nothing is the same",
+    "hell is here",
+    "and its here to stay",
+    "my partys down you gotta come",
+    "tax fraud :3"
+];
 var speed = 100; // Typing speed in milliseconds
 
-function generateRandomText(length) {
-    var result = '';
-    for (var i = 0; i < length; i++) {
-        var randomIndex = Math.floor(Math.random() * characters.length); // Get a random index from the characters string
-        var randomChar = characters.charAt(randomIndex); // Select a random character
-        result += randomChar;
-    }
-    return result;
+function getRandomTitle() {
+    var randomIndex = Math.floor(Math.random() * titles.length);
+    return titles[randomIndex];
 }
 
 function typeWriter() {
-    var randomText = generateRandomText(20); // Generate a random text of desired length
+    var text = getRandomTitle();
     var i = 0;
     function type() {
-        if (i < randomText.length) {
-            titleElement.innerHTML += randomText.charAt(i);
+        if (i < text.length) {
+            titleElement.innerHTML += text.charAt(i);
             i++;
             setTimeout(type, speed);
         }
